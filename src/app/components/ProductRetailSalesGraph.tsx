@@ -413,46 +413,6 @@ ChartJS.defaults.font.family = "Poppins, sans-serif"
 ChartJS.defaults.font.size = 18
 ChartJS.defaults.color = "#384354"
 
-export const options = {
-  responsive: true,
-  maintainAspectRatio: false,
-  plugins: { legend: { display: false } },
-  elements: {
-    point: {
-      radius: 1,
-    },
-  },
-  scales: {
-    x: {
-      min: parseISO("2017-01-01"),
-      max: parseISO("2017-12-31"),
-      type: "time",
-      grid: {
-        display: false,
-      },
-      time: {
-        tooltipFormat: "yyyy-MM-dd",
-        unit: "month",
-        displayFormats: {
-          month: "MMM",
-        },
-      },
-      adapters: {
-        date: {
-          locale: enUS,
-        },
-      },
-    },
-    y: {
-      display: false,
-    },
-  },
-  interaction: {
-    mode: "index",
-    axis: "y",
-  },
-}
-
 export const data = {
   datasets: [
     {
@@ -487,7 +447,48 @@ const ProductRetailSalesGraph = () => {
       <ProductRetailSalesGraphContainer>
         <Title>Retail Sales</Title>
         <GraphContainer>
-          <Line options={options} data={data} /> 
+          <Line
+            options={{
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: { legend: { display: false } },
+              elements: {
+                point: {
+                  radius: 1,
+                },
+              },
+              scales: {
+                x: {
+                  min: parseISO("2017-01-01").getTime(),
+                  max: parseISO("2017-12-31").getTime(),
+                  type: "time",
+                  grid: {
+                    display: false,
+                  },
+                  time: {
+                    tooltipFormat: "yyyy-MM-dd",
+                    unit: "month",
+                    displayFormats: {
+                      month: "MMM",
+                    },
+                  },
+                  adapters: {
+                    date: {
+                      locale: enUS,
+                    },
+                  },
+                },
+                y: {
+                  display: false,
+                },
+              },
+              interaction: {
+                mode: "index",
+                axis: "y",
+              },
+            }}
+            data={data}
+          />
         </GraphContainer>
       </ProductRetailSalesGraphContainer>
     </>

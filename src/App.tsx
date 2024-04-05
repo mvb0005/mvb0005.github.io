@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 import ProductPage from "./app/ProductPage"
-import logo from "./logo.png"
+import logo from "./app/common/logo.png"
 
 const BackgroundContainer = styled.div`
   background-color: #f6f8fa;

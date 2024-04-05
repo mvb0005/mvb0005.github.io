@@ -388,40 +388,18 @@ const sales = [
 const ProductRetailSalesTable = () => {
   return (
     <ModalContainer>
-      {/* <TableContainer sx={{borderRadius: 3, boxShadow: 3}}>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
-              <TableCell>WEEK ENDING</TableCell>
-              <TableCell>RETAIL SALES</TableCell>
-              <TableCell>WHOLESALE SALES</TableCell>
-              <TableCell>UNITS SOLD</TableCell>
-              <TableCell>RETAILER MARGIN</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {sales.map(sale => {
-              return (
-                <TableRow key={sale.weekEnding}>
-                  <TableCell>{sale.weekEnding}</TableCell>
-                  <TableCell>{sale.retailSales}</TableCell>
-                  <TableCell>{sale.wholesaleSales}</TableCell>
-                  <TableCell>{sale.unitsSold}</TableCell>
-                  <TableCell>{sale.retailerMargin}</TableCell>
-                </TableRow>
-              )
-            })}
-          </TableBody>
-        </Table>
-      </TableContainer> */}
-
       <DataGrid
         initialState={{
           sorting: {
             sortModel: [{ field: "weekEnding", sort: "asc" }],
           },
         }}
-        sx={{ fontFamily: "Poppins, sans-serif", fontWeight: 300, color: "#384354", boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)"}}
+        sx={{
+          fontFamily: "Poppins, sans-serif",
+          fontWeight: 300,
+          color: "#384354",
+          boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+        }}
         getRowId={row => row.weekEnding}
         rows={sales}
         columns={[

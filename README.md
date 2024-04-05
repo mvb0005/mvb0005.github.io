@@ -1,27 +1,11 @@
-# vite-template-redux
+# Matt Bonsall's Frontend Accessment for Stackline
 
-Uses [Vite](https://vitejs.dev/), [Vitest](https://vitest.dev/), and [React Testing Library](https://github.com/testing-library/react-testing-library) to create a modern [React](https://react.dev/) app compatible with [Create React App](https://create-react-app.dev/)
+This project is built on [vite-template-redux](https://react-redux.js.org/introduction/getting-started).
 
-```sh
-npx degit reduxjs/redux-templates/packages/vite-template-redux my-app
-```
+I chose to use Chart.js for the graphing library because it is open source, simple, and easily modifieable. I also chose to use MaterialUI's table library to get the desired sorting functionality out of the box. 
 
-## Goals
+The API endpoint is mocked using [MSW](https://mswjs.io/). This allowed me to fully flesh out the API calls the page would make. I also added a delay to show off the nifty loading states. 
 
-- Easy migration from Create React App or Vite
-- As beginner friendly as Create React App
-- Optimized performance compared to Create React App
-- Customizable without ejecting
+I did use Microsoft Copilot to assist with some of the gruntwork as I think it is a valuable tool.  
 
-## Scripts
-
-- `dev`/`start` - start dev server and open browser
-- `build` - build for production
-- `preview` - locally preview production build
-- `test` - launch test runner
-
-## Inspiration
-
-- [Create React App](https://github.com/facebook/create-react-app/tree/main/packages/cra-template)
-- [Vite](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react)
-- [Vitest](https://github.com/vitest-dev/vitest/tree/main/examples/react-testing-lib)
+The app can be access via [Github Pages](https://mvb0005.github.io/)

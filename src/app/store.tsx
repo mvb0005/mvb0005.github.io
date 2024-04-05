@@ -15,13 +15,7 @@ export const handlers = [
 ]
 
 export const mockHTTPWorker = setupWorker(...handlers)
-export const mockHTTPWorkerOptions = {
-  serviceWorker: {
-    options: {
-      scope: "/fakeApi/products",
-    },
-  },
-}
+
 const productsSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({

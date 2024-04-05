@@ -2,18 +2,29 @@ import React from "react"
 import { createRoot } from "react-dom/client"
 import { Provider } from "react-redux"
 import App from "./App"
+import { mockHTTPWorker, mockHTTPWorkerOptions, store } from "./app/store"
+import { RouterProvider, createBrowserRouter } from "react-router-dom"
 
 const container = document.getElementById("root")
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+])
 
 if (container) {
   const root = createRoot(container)
 
-  root.render(
-    <React.StrictMode>
-      {/* <Provider store={store}> */}
-        <App />
-      {/* </Provider> */}
-    </React.StrictMode>,
+  mockHTTPWorker.start(mockHTTPWorkerOptions).then(() =>
+    root.render(
+      <React.StrictMode>
+        <Provider store={store}>
+          <RouterProvider router={router} />
+        </Provider>
+      </React.StrictMode>,
+    ),
   )
 } else {
   throw new Error(

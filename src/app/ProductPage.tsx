@@ -3,6 +3,8 @@ import ProductDetails from "./components/ProductDetails"
 import ProductRetailSalesGraph from "./components/ProductRetailSalesGraph"
 import ProductRetailSalesTable from "./components/ProductRetailSalesTable"
 import { ModalContainer } from "./common/styles"
+import { useSearchParams } from "react-router-dom"
+import { useEffect } from "react"
 
 const PageContainer = styled.div`
   display: flex;
@@ -23,15 +25,24 @@ const ProductDataContainer = styled.div`
   gap: 80px;
 `
 
+const defaultProduct = "B007TIE0GQ"
 const ProductPage = () => {
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  useEffect(() => {
+    if (searchParams.get("product") === null) {
+      setSearchParams({ product: defaultProduct })
+    }
+  }, [searchParams])
+  const productId = searchParams.get("product") || defaultProduct
   return (
     <PageContainer>
       <ProductDetailsContainer>
-        <ProductDetails />
+        <ProductDetails productId={productId} />
       </ProductDetailsContainer>
       <ProductDataContainer>
-        <ProductRetailSalesGraph />
-        <ProductRetailSalesTable />
+        <ProductRetailSalesGraph productId={productId} />
+        <ProductRetailSalesTable productId={productId} />
       </ProductDataContainer>
     </PageContainer>
   )
